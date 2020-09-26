@@ -8,5 +8,17 @@
 """v1接口版本"""
 
 from flask import Blueprint
+from flask_restplus import Api
+from .demo import ns as demo_ns
+from .demo1 import ns as demo1_ns
 
-api = Blueprint('flask_demo', __name__, url_prefix='/api/v1')
+blueprint = Blueprint('flask_demo', __name__, url_prefix='/api/v1')
+
+api = Api(blueprint, title='Demo API v1',
+          version='1.0',
+          description='Demo API v1',
+          )
+
+api.add_namespace(demo_ns)
+api.add_namespace(demo1_ns)
+

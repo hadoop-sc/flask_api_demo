@@ -9,10 +9,10 @@
 
 from flask_restplus import Namespace, Resource
 
-ns = Namespace('demo', description='namespace api demo', path='/demo')
+ns = Namespace('demo1', description='namespace api demo1', path='/demo1')
 
 
-@ns.route('/index')
+@ns.route('/index1')
 class Demo(Resource):
 
     def get(self):

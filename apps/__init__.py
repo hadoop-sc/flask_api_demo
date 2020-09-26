@@ -29,7 +29,7 @@ def create_app(config_name='dev'):
     # 初始化app对象
     app = Flask(__name__)
     app.config.from_object(config_map[config_name])
-    (app.config)
+    print(app.config)
 
     # 初始化db对象
     db.init_app(app)
@@ -50,8 +50,7 @@ def create_app(config_name='dev'):
         redis_store = StrictRedis(flask_demo_redis_host, flask_demo_redis_port, flask_demo_redis_dbname)
 
     # 注册蓝图(在create_app方法内引用，防止循环导入)
-    from apps.api.v1 import api
-    app.register_blueprint(api)
-
+    from apps.api.v1 import blueprint as api_v1
+    app.register_blueprint(api_v1)
 
     return app
