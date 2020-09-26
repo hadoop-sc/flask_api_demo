@@ -9,7 +9,7 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_sessions import Session
+from flask_session import Session
 from redis import StrictRedis
 from flask_wtf import CSRFProtect
 from config import config_map
@@ -29,12 +29,13 @@ def create_app(config_name='dev'):
     # 初始化app对象
     app = Flask(__name__)
     app.config.from_object(config_map[config_name])
-    print(app.config)
+    (app.config)
 
     # 初始化db对象
     db.init_app(app)
 
     # 初始化session对象
+
     Session(app)
 
     # 增加CRSF防护
