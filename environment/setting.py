@@ -28,7 +28,7 @@ flask_demo_redis_password = os.environ.get('FLASK_DEMO_REDIS_PASSWORD', None)
 
 # session设置
 # session 过期时间默认一天
-permanent_session_lifetime = os.environ.get('FLASK_DEMO_PERMANENT_SESSION_LIFETIME', '86400')
+permanent_session_lifetime = int(os.environ.get('FLASK_DEMO_PERMANENT_SESSION_LIFETIME', '86400'))
 
 # 日志等级
 log_level = os.environ.get('FLASK_DEMO_LOG_LEVEL', 'INFO')
